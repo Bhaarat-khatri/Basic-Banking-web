@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin: 0px;
+            padding:0px;
+            font-family: 'Poppins', sans-serif;
+           
+        }
+        .fullpage
+        {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+        .box
+        {
+              font-weight: 600;
+            margin: auto;
+            width:80%
+           
+        }
+        .customize
+   {
+    width: 80%;
+    margin: auto;
+   }
+       
+        tbody, td, tfoot, th, thead, tr {
+    padding: 2%;
+    font-size: 27px;
+}
+ input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 48%;
+}
+    </style>
+</head>
+<body>
+   
+    <div class="fullpage">
+        <div class="box">
+
+                            <table class="table-borderless customize">
+            
+                                <tbody>
+                                  <tr>
+                                    <th>Name</th>
+                                    <td><%= info.fullname%></td>
+                                  </tr>
+                                  <tr>
+                                    
+                                    <th>Email</th>
+                                    <td><%= info.email %></td>
+                                  </tr>
+                                  <tr>
+                                    
+                                    <th>City</th>
+                                    <td><%= info.city %></td>
+                                  </tr>
+                                  <tr>
+                                    
+                                    <th>Balance</th>
+                                    <td><%= info.currentbalance %></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                    <th><div>Transfer Money</div></th>
+                                  </tr>
+                                  <form action="/<%=info.id%>" method="post">   
+                                  <tr>
+                                    
+                                    <th>To</th>
+                                    <td> <select name="name" required>
+                                        <option value="select" disabled>--Select--</option>
+                                        <% for(var i = 0; i < every.length ; i++) { %>
+                                        <option ><%= every[i].fullname %></option>
+                                        <% } %>
+                                      </select></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Amount</th>
+                                    <td><input type="number" name="amount" placeholder="Enter Amount" min="1" max="<%= info.currentbalance %>" required></td>
+                                  </tr>
+                                  <td></td>
+                                   <td><button type="submit" class="btn btn-primary" style="margin: auto;">Transfer</button></td>
+                                  </tr>
+                                  </form>
+                                </tbody>
+                              </table>
+                  </div>
+               
+                  
+
+        </div>
+    </div>
+</body>
+</html>
