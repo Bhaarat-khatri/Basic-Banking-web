@@ -50,7 +50,7 @@ require("./mongodb/db");
 //stattic files
 app.use(express.static(path.join(__dirname, 'public')));
 //port8
-const PORT = process.env.post || 80;
+const PORT = process.env.PORT || 80;
 //ejs
 app.set("views",path.join(__dirname,"views"))
 app.set("view engine","ejs");
