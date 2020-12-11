@@ -48,7 +48,7 @@ const customer= mongoose.model("customerinfo",new mongoose.Schema({
 }));
 require("./mongodb/db");
 //stattic files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 //port8
 const PORT = process.env.PORT || 80;
 //ejs
